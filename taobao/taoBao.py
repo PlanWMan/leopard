@@ -1,6 +1,6 @@
 # 测试淘宝的爬虫(港仔文艺)
-import requests, urllib3, re, sys, asyncio, tbLogin
-from tbLogin import taobao_login
+import requests, urllib3, re, sys, asyncio
+from taobao.tbLogin import taobao_login
 from time import sleep
 from random import randint
 from fake_useragent import UserAgent
