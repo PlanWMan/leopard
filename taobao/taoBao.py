@@ -7,8 +7,9 @@ from fake_useragent import UserAgent
 from json import loads
 from retrying import retry
 
-ip_port = 'secondtransfer.moguproxy.com:9001'
-appKey = 'bm93WkdOc1FlS1g0TkhPTzoxbDl2UTNieWJ0S3djNVNx'
+# 动态ip
+ip_port = ''
+appKey = ''
 
 proxy = {"http": "http://" + ip_port, "https": "https://" + ip_port}
 
