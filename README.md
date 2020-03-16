@@ -1,2 +1,2 @@
 # leopard
-2020，我的技术库主要是爬虫类的代码
+使用scrapy + mongodb + redis + selenium获取数据 爬取瓜子网
