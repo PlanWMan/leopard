@@ -1,3 +1,7 @@
+"""
+mongodb 的另一种应用
+"""
+
 from mongoengine import *
 
 connect('test', host='localhost', port=27017)
