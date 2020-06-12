@@ -5,12 +5,19 @@ flask 的学习
 # 一个小的flask应用
 
 from flask import Flask
+import requests
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
+    reqs = requests.get(url="https://www.baidu.com/")
+    print(reqs.url)
+    print(reqs.status_code)
+    reqs = requests.get(url='https://paat1001.b2b.hc360.com/shop/show.html')
+    print(reqs.url)
+    print(reqs.status_code)
     return "index page"
 
 
