@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+*.pyc
+__pycache__
+.vertx
+.idea/*
+*.pk
+*.log
+*DS_Store*
+venv
+*.egg-info
+*.c
