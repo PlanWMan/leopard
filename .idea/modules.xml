@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/leopard.iml" filepath="$PROJECT_DIR$/.idea/leopard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mygitproject.iml" filepath="$PROJECT_DIR$/.idea/mygitproject.iml" />
     </modules>
   </component>
 </project>
