@@ -6,7 +6,7 @@ import time
 def sjc(func):
     def nh(*args, **kwargs):
         a_ = int(time.time() * 1000)
-        a = func(*args, kwargs)
+        a = func(*args, **kwargs)
         b_ = int(time.time() * 1000)
         print(b_ - a_)
         return a
@@ -151,8 +151,41 @@ def fetch():
     except requests.ConnectionError:
         return None
 
-
+import asyncio
 if __name__ == '__main__':
-    fetch()
+    # fetch()
     # f = lambda x: x is None
     # print(f(None))
+    async def do_sth():
+        print('do sth')
+        await asyncio.sleep(1)
+        raise Exception("error occur")
+
+
+    async def run():
+        try:
+            res = await asyncio.wait_for(asyncio.shield(do_sth()), 3)
+        except asyncio.TimeoutError:
+            print('timeout')
+        except Exception as e:
+            print('error', e)
+
+
+    coro = run()
+    loop = asyncio.get_event_loop()
+    loop.create_task(coro)
+
+    try:
+        loop.run_forever()
+    except KeyboardInterrupt:
+        pass
+
+    try:
+        tasks = asyncio.Task.all_tasks()
+        if len(tasks):
+            print('still running task:', len(tasks))
+            loop.run_until_complete(asyncio.wait_for(asyncio.gather(*tasks), timeout=3))
+        loop.close()
+    except Exception as exc:
+        print(exc)
+    print('stopped')

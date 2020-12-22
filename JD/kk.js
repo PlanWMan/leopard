@@ -1,0 +1,1 @@
+function papi(c) {console.log("aaaa")}

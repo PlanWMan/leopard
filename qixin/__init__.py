@@ -1,16 +1,11 @@
-from selenium import webdriver
-from lxml import etree
+import re
+def get_phone(phone):
+    # 返回手机和电话的方法t电话 s手机
+    sx = r"^1[3456789]\d{9}$"  # 正则手机号
+    tx = r"^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$"  # 正则电话
+    s = re.findall(sx, phone)
+    t = re.findall(tx, phone)
+    return ','.join(t), ','.join(s)
 
-import urllib3
-
-urllib3.disable_warnings()
-driver = webdriver.Chrome('D:/tool/chromedriver_win32/chromedriver.exe')
-cookies = {
-    'value': 'think%3A%7B%22username%210293%31628193MDAwMDAwMLOGpZaIudFqhc6Gl7LQetmZtmfOk2RhbQ%22%2C%22expire%sfdaaswMDAwMDAwMLOGud6Gqb-whbiCmLOmdZ4%22%2C%22token%22%3A%22MDAwMDAwMDAwMMurrpWavLehhs1-3LLfgduEt4OWepuo123456123KZq6HQxtOK0ZCme5p-q6iZu2yrn4uNhJ3KedDYk7ivboS4it6910926YW0%22%7D',
-    'name': 'ketangpai_home_remember'}
-
-driver.add_cookie(cookie_dict=cookies)
-reqs = driver.get("https://www.ketangpai.com/Main/index.html")
-resq = etree.HTML(reqs.text)
-print(resq.xpath('//a/@title'))
+get_phone('0997-4686989/18096905885')
 

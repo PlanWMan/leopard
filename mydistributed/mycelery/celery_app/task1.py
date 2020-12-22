@@ -1,10 +1,15 @@
 import time
-from celery_app import app
-import cerleryconfig
+from mydistributed.mycelery.celery_app import app
+from mydistributed.mycelery import cerleryconfig
+import zmail
 
 @app.task
 def add(x, y):
-    time.sleep(3)
-    for i in cerleryconfig.aa:
-        print(i)
+    server = zmail.server('w1830678@163.com', 'MNZKVOUEIVQEYWNL')
+
+    # Send mail
+    server.send_mail('w1830678@163.com', {'subject': 'Hello!', 'content_text': 'By zmail.'})
+    print(x, y, 'task1')
     return x + y
+
+add(4,5)

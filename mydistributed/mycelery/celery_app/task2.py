@@ -1,7 +1,8 @@
 import time
-from celery_app import app
+from mydistributed.mycelery.celery_app import app
 
 @app.task
 def multiply(x, y):
-    time.sleep(4)
+
+    print(x, y, 'task2')
     return x * y
