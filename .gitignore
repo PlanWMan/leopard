@@ -1,0 +1,17 @@
+.idea
+*.pyc
+__pycache__
+.vertx
+.idea/*
+*.pk
+crawler/logs
+test/*
+*.log
+*DS_Store*
+venv
+build
+dist
+*.egg-info
+*.c
+daq_data/1.jpg
+daq/utils/chromedriver/Windows.exe
